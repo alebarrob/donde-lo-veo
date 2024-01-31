@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Common -->
+
+    <dimen name="zero">0dp</dimen>
     <dimen name="tiny">1dp</dimen>
     <dimen name="extra_small">4dp</dimen>
     <dimen name="small">8dp</dimen>
     <dimen name="medium">16dp</dimen>
     <dimen name="large">32dp</dimen>
     <dimen name="extra_large">64dp</dimen>
+
+    <!-- Bottom app bar -->
+
+    <dimen name="item_active_indicator_size">25dp</dimen>
+
 </resources>

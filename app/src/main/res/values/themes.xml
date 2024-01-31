@@ -10,6 +10,36 @@
 
     <style name="Theme.Dondeloveo" parent="Base.Theme.Dondeloveo" />
 
+    <!-- Bottom app bar -->
+
+    <style name="BottomAppBar" parent="Widget.Material3.BottomAppBar">
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:backgroundTint">@color/colorPrimary</item>
+    </style>
+
+    <style name="BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="itemActiveIndicatorStyle">@style/ItemActiveIndicator</item>
+        <item name="itemTextAppearanceActive">@style/ItemTextAppearanceActive</item>
+        <item name="itemTextAppearanceInactive">@style/ItemTextAppearanceInactive</item>
+        <item name="itemIconSize">@dimen/large</item>
+        <item name="itemIconTint">@color/white</item>
+        <item name="itemTextColor">@color/white</item>
+        <item name="elevation">@dimen/zero</item>
+    </style>
+
+    <style name="ItemTextAppearanceActive" parent="LabelMedium">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ItemTextAppearanceInactive" parent="LabelMedium"/>
+
+    <style name="ItemActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/colorSecondary</item>
+        <item name="android:height">@dimen/item_active_indicator_size</item>
+        <item name="android:width">@dimen/item_active_indicator_size</item>
+    </style>
+
     <!-- Typography -->
 
     <style name="DisplayMedium">

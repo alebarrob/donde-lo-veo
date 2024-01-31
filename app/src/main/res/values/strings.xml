@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">DóndeLoVeo</string>
-    <string name="menu_item_explore_content_description">Buscar series y películas</string>
-    <string name="menu_item_explore_title">Explorar</string>
-    <string name="menu_item_favorite_content_description">Series y películas favoritas</string>
-    <string name="menu_item_favorite_title">Mis favoritos</string>
+    <string name="bottom_bar_item_explore_content_description">Buscar series y películas</string>
+    <string name="bottom_bar_item_explore_title">Explorar</string>
+    <string name="bottom_bar_item_favorite_content_description">Series y películas favoritas</string>
+    <string name="bottom_bar_item_favorite_title">Mis favoritos</string>
     <string name="screen_explore_display_text">¡Busca tus películas y series favoritas!</string>
     <string name="card_media_content_button_more_info_text">Más información</string>
     <string name="api_error">Algo fue mal con el acceso a la API. Comprueba si estás conectado a Internet e inténtalo de nuevo.</string>

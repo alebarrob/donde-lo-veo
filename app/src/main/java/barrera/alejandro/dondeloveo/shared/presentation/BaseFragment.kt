@@ -1,4 +1,4 @@
-package barrera.alejandro.dondeloveo.core.presentation
+package barrera.alejandro.dondeloveo.shared.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -30,11 +30,11 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         arguments?.let { bundle ->
             if (!bundle.isEmpty) getBundleArguments(bundle)
         }
-        observeViewModel()
+        observeScreenState()
     }
     open fun getBundleArguments(arguments: Bundle) = Unit
 
-    open fun observeViewModel() = Unit
+    open fun observeScreenState() = Unit
 
     override fun onDestroyView() {
         _binding = null

@@ -1,8 +1,8 @@
-package barrera.alejandro.dondeloveo.core.presentation
+package barrera.alejandro.dondeloveo.shared.presentation
 
 import android.content.res.ColorStateList
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var navHostFragment: NavHostFragment
     private lateinit var navController: NavController
-    private var isFavoriteScreen: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -96,15 +95,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onNavigationDestinationChanged() {
-        navController.addOnDestinationChangedListener { _, destination, bundle ->
-            getBundleArguments(bundle)
+        navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.exploreFragment -> {
-                    if (isFavoriteScreen) {
-                        setMenuItemChecked(R.id.favoriteItem)
-                    } else {
-                        setMenuItemChecked(R.id.favoriteItem)
-                    }
                     appBarLayout.isVisible = false
                     coordinatorLayout.isVisible = true
                 }
@@ -117,25 +110,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun getBundleArguments(bundle: Bundle?) {
-        bundle?.let { arguments ->
-            if (!arguments.isEmpty) {
-                isFavoriteScreen = arguments.getBoolean(IS_FAVORITE_SCREEN)
-            }
-        }
-    }
-
-    private fun setMenuItemChecked(menuItemId: Int) {
-        bottomNavigationView.menu.findItem(menuItemId)?.isChecked = true
-    }
-
     private fun setupTopAppBarNavigation() {
         materialToolbar.setNavigationOnClickListener {
             supportFragmentManager.popBackStack()
         }
-    }
-
-    companion object {
-        private const val IS_FAVORITE_SCREEN = "isFavoriteScreen"
     }
 }

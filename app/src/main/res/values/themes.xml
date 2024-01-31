@@ -10,6 +10,12 @@
 
     <style name="Theme.Dondeloveo" parent="Base.Theme.Dondeloveo" />
 
+    <!-- Top app bar -->
+
+    <style name="TopAppBar">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
     <!-- Bottom app bar -->
 
     <style name="BottomAppBar" parent="Widget.Material3.BottomAppBar">

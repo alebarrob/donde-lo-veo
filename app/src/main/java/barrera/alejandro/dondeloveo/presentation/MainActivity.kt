@@ -6,6 +6,8 @@ import android.os.Bundle
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import barrera.alejandro.dondeloveo.R
 import barrera.alejandro.dondeloveo.databinding.ActivityMainBinding
+import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.shape.CornerFamily
@@ -14,6 +16,8 @@ import com.google.android.material.shape.ShapeAppearanceModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var appBarLayout: AppBarLayout
+    private lateinit var materialToolbar: MaterialToolbar
     private lateinit var coordinatorLayout: CoordinatorLayout
     private lateinit var bottomAppBar: BottomAppBar
     private lateinit var bottomNavigationView: BottomNavigationView
@@ -28,6 +32,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupViewBinding() {
+        appBarLayout = binding.appBarLayout
+        materialToolbar = binding.materialToolBar
         coordinatorLayout = binding.coordinatorLayout
         bottomAppBar = binding.bottomAppBar
         bottomNavigationView = binding.bottomNavigationView

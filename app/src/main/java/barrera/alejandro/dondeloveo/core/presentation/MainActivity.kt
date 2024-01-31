@@ -1,4 +1,4 @@
-package barrera.alejandro.dondeloveo.presentation
+package barrera.alejandro.dondeloveo.core.presentation
 
 import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +10,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import barrera.alejandro.dondeloveo.R
 import barrera.alejandro.dondeloveo.databinding.ActivityMainBinding
+import barrera.alejandro.dondeloveo.explore.presentation.ExploreFragmentDirections
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomappbar.BottomAppBar

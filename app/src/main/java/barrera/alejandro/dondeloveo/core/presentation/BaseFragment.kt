@@ -1,4 +1,4 @@
-package barrera.alejandro.dondeloveo.presentation
+package barrera.alejandro.dondeloveo.core.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater

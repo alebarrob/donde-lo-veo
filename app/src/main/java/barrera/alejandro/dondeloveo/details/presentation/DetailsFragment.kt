@@ -1,6 +1,7 @@
-package barrera.alejandro.dondeloveo.presentation
+package barrera.alejandro.dondeloveo.details.presentation
 
 import android.view.LayoutInflater
+import barrera.alejandro.dondeloveo.core.presentation.BaseFragment
 import barrera.alejandro.dondeloveo.databinding.FragmentDetailsBinding
 
 class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {

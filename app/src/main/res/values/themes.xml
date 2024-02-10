@@ -46,6 +46,37 @@
         <item name="android:width">@dimen/item_active_indicator_size</item>
     </style>
 
+    <!-- Explore fragment -->
+
+    <style name="CustomCardView">
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardCornerRadius">@dimen/medium</item>
+        <item name="strokeWidth">@dimen/tiny</item>
+        <item name="strokeColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="CustomImageCardView">
+        <item name="cardCornerRadius">@dimen/zero</item>
+        <item name="strokeWidth">@dimen/zero</item>
+    </style>
+
+    <style name="Button">
+        <item name="android:backgroundTint">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/lato_bold</item>
+    </style>
+
+    <style name="CircularProgressIndicator">
+        <item name="indicatorColor">@color/colorPrimary</item>
+        <item name="trackColor">@color/white</item>
+        <item name="android:indeterminate">true</item>
+    </style>
+
+    <style name="SearchView">
+        <item name="queryBackground">@color/white</item>
+        <item name="iconifiedByDefault">false</item>
+        <item name="android:background">@drawable/rounded_search_view_background</item>
+    </style>
+
     <!-- Typography -->
 
     <style name="DisplayMedium">

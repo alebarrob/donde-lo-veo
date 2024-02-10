@@ -1,19 +1,19 @@
 <resources>
-    <string name="app_name">DóndeLoVeo</string>
-    <string name="bottom_bar_item_explore_content_description">Buscar series y películas</string>
-    <string name="bottom_bar_item_explore_title">Explorar</string>
-    <string name="bottom_bar_item_favorite_content_description">Series y películas favoritas</string>
-    <string name="bottom_bar_item_favorite_title">Mis favoritos</string>
-    <string name="screen_explore_display_text">¡Busca tus películas y series favoritas!</string>
-    <string name="card_media_content_button_more_info_text">Más información</string>
-    <string name="api_error">Algo fue mal con el acceso a la API. Comprueba si estás conectado a Internet e inténtalo de nuevo.</string>
-    <string name="row_team_title">Equipo</string>
+    <string name="app_name">WhereDoIWatchIt</string>
+    <string name="bottom_bar_item_explore_content_description">Search series and movies</string>
+    <string name="bottom_bar_item_explore_title">Explore</string>
+    <string name="bottom_bar_item_favorite_content_description">Favorite series and movies</string>
+    <string name="bottom_bar_item_favorite_title">My favorites</string>
+    <string name="screen_explore_display_text">Search for your favorite movies and series!</string>
+    <string name="card_media_content_button_more_info_text">More information</string>
+    <string name="api_error">Something went wrong with the API access. Please check your internet connection and try again.</string>
+    <string name="row_team_title">Team</string>
     <string name="row_casting_title">Casting</string>
-    <string name="row_streaming_sources_title">¿Dónde lo veo?</string>
-    <string name="chip_streaming_source_image_description">Imagen de la web de streaming</string>
+    <string name="row_streaming_sources_title">Where do I watch it?</string>
+    <string name="chip_streaming_source_image_description">Image from the streaming website</string>
     <string name="string_hyphen_string">%s - %s</string>
-    <string name="screen_favorites_button_delete_text">Borrar</string>
-    <string name="screen_favorites_button_favorite_text">Favorito</string>
-    <string name="toast_added_to_favorites_text">Contenido añadido a la lista de favoritos</string>
-    <string name="toast_favorite_deleted_text">El contenido fue borrado con éxito</string>
+    <string name="screen_favorites_button_delete_text">Delete</string>
+    <string name="screen_favorites_button_favorite_text">Favorite</string>
+    <string name="toast_added_to_favorites_text">Content added to favorites list</string>
+    <string name="toast_favorite_deleted_text">Content was successfully deleted</string>
 </resources>

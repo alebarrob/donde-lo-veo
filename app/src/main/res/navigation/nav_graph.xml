@@ -35,6 +35,9 @@
             android:name="isFavoriteScreen"
             app:argType="boolean"
             android:defaultValue="false" />
+        <argument
+            android:name="mediaContentType"
+            app:argType="string" />
 
     </fragment>
 

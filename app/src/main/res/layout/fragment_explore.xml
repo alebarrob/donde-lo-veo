@@ -2,20 +2,46 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/master"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".explore.presentation.ExploreFragment">
+    tools:context=".presentation.ExploreFragment">
 
     <TextView
+        android:id="@+id/exploreDisplayText"
+        style="@style/DisplayMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Explore Fragment"
-        android:textColor="@color/white"
+        android:layout_marginHorizontal="@dimen/medium"
+        android:layout_marginTop="@dimen/medium"
+        android:text="@string/screen_explore_display_text"
         android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@id/searchView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        style="@style/SearchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/medium"
+        android:layout_marginTop="@dimen/medium"
+        app:layout_constraintBottom_toTopOf="@id/mediaContentRecyclerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exploreDisplayText" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mediaContentRecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero"
+        android:layout_marginTop="@dimen/medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        tools:listitem="@layout/media_content_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,14 +40,12 @@ android {
 }
 
 dependencies {
-    // Versions for androidx libraries
     val androidxCoreVersion = "1.12.0"
     val appCompatVersion = "1.6.1"
     val materialVersion = "1.11.0"
     val constraintLayoutVersion = "2.1.4"
     val navigationVersion = "2.7.6"
-
-    // Versions for testing libraries
+    val coilVersion = "2.5.0"
     val junitVersion = "4.13.2"
     val espressoCoreVersion = "3.5.1"
     val androidTestExtVersion = "1.1.5"
@@ -61,6 +59,9 @@ dependencies {
     // Navigation dependencies
     implementation("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navigationVersion")
+
+    // Coil dependencies
+    implementation("io.coil-kt:coil:$coilVersion")
 
     // Unit testing dependencies
     testImplementation("junit:junit:$junitVersion")

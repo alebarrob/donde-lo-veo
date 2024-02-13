@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp")
     id("androidx.navigation.safeargs.kotlin")
 }
 
@@ -44,11 +45,13 @@ dependencies {
     val appCompatVersion = "1.6.1"
     val materialVersion = "1.11.0"
     val constraintLayoutVersion = "2.1.4"
-    val navigationVersion = "2.7.6"
+    val navigationVersion = "2.7.7"
     val coilVersion = "2.5.0"
     val junitVersion = "4.13.2"
     val espressoCoreVersion = "3.5.1"
     val androidTestExtVersion = "1.1.5"
+    val retrofitVersion = "2.9.0"
+    val roomVersion = "2.6.1"
 
     // Core dependencies for Android development
     implementation("androidx.core:core-ktx:$androidxCoreVersion")
@@ -62,6 +65,16 @@ dependencies {
 
     // Coil dependencies
     implementation("io.coil-kt:coil:$coilVersion")
+
+    // Retrofit dependencies
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-moshi:$retrofitVersion")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:mockwebserver:4.12.0")
+
+    // Room dependencies
+    implementation("androidx.room:room-ktx:$roomVersion")
+    ksp("androidx.room:room-compiler:$roomVersion")
 
     // Unit testing dependencies
     testImplementation("junit:junit:$junitVersion")

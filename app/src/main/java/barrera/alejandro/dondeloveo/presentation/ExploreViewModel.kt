@@ -3,14 +3,23 @@ package barrera.alejandro.dondeloveo.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import barrera.alejandro.dondeloveo.R
+import barrera.alejandro.dondeloveo.domain.use_case.GetAllFavoriteMediaContentOverview
+import barrera.alejandro.dondeloveo.domain.use_case.SearchByTitle
+import barrera.alejandro.dondeloveo.presentation.mappers.toUiMediaContentOverview
 import barrera.alejandro.dondeloveo.presentation.model.UiMediaContent
 import barrera.alejandro.dondeloveo.presentation.model.UiMediaContentOverview
 import barrera.alejandro.dondeloveo.presentation.model.UiMovieOverview
 import barrera.alejandro.dondeloveo.presentation.model.UiSeriesOverview
 import barrera.alejandro.dondeloveo.presentation.util.Event
 import barrera.alejandro.dondeloveo.presentation.util.UiText
+import kotlinx.coroutines.launch
 
-class ExploreViewModel : ViewModel() {
+class ExploreViewModel(
+    private val searchByTitle: SearchByTitle,
+    private val getAllFavoriteMediaContentOverview: GetAllFavoriteMediaContentOverview
+) : ViewModel() {
     private val _isFavoriteScreen = MutableLiveData(false)
     val isFavoriteScreen: LiveData<Boolean>
         get() = _isFavoriteScreen
@@ -31,12 +40,16 @@ class ExploreViewModel : ViewModel() {
         _isFavoriteScreen.value = isFavoriteScreen
     }
 
-    // TODO("Use case and error handling not implemented yet")
     fun onSearchByTitle(query: String) {
-        _mediaContentItems.value = listOf(
-            UiMovieOverview(0, "Movie title", "1999", ""),
-            UiSeriesOverview(0, "Series title", "1999", "")
-        )
+        viewModelScope.launch {
+            searchByTitle.invoke(query)
+                .onSuccess { mediaContents ->
+                    _mediaContentItems.value = mediaContents.map { it.toUiMediaContentOverview() }
+                }
+                .onFailure {
+                    _showToastEvent.value = Event(UiText.StringResource(R.string.api_error))
+                }
+        }
     }
 
     fun onClickMoreInfoButton(position: Int) {
@@ -45,7 +58,14 @@ class ExploreViewModel : ViewModel() {
         }
     }
 
-    // TODO("Use case and error handling not implemented yet")
+    fun loadFavoriteMediaContent() {
+        viewModelScope.launch {
+            _mediaContentItems.value =
+                getAllFavoriteMediaContentOverview().map { it.toUiMediaContentOverview() }
+        }
+    }
+
+    // TODO("Favorites not implemented yet")
     fun refreshMediaContentItems() {
         _mediaContentItems.value = if (_isFavoriteScreen.value == true) {
             listOf(

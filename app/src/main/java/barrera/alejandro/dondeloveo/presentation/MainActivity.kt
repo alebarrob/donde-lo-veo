@@ -17,8 +17,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
+    val viewModel: MainViewModel by viewModel()
     private lateinit var binding: ActivityMainBinding
     private lateinit var appBarLayout: AppBarLayout
     private lateinit var materialToolbar: MaterialToolbar
@@ -38,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         setupBottomBar()
         onNavigationDestinationChanged()
         setupTopAppBarNavigation()
+        viewModel.saveStreamingSourceLogosUrl()
     }
 
     private fun setupViewBinding() {

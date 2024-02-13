@@ -1,4 +1,4 @@
-package barrera.alejandro.dondeloveo.data
+package barrera.alejandro.dondeloveo.data.repository
 
 import barrera.alejandro.dondeloveo.data.local.dao.StreamingSourceLogoUrlDao
 import barrera.alejandro.dondeloveo.data.local.entity.StreamingSourceLogoUrlEntity

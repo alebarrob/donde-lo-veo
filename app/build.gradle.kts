@@ -52,6 +52,7 @@ dependencies {
     val androidTestExtVersion = "1.1.5"
     val retrofitVersion = "2.9.0"
     val roomVersion = "2.6.1"
+    val koinVersion = "3.5.3"
 
     // Core dependencies for Android development
     implementation("androidx.core:core-ktx:$androidxCoreVersion")
@@ -76,8 +77,14 @@ dependencies {
     implementation("androidx.room:room-ktx:$roomVersion")
     ksp("androidx.room:room-compiler:$roomVersion")
 
+    // Koin dependencies
+    implementation("io.insert-koin:koin-core:$koinVersion")
+    implementation("io.insert-koin:koin-android:$koinVersion")
+
     // Unit testing dependencies
     testImplementation("junit:junit:$junitVersion")
+    testImplementation("io.insert-koin:koin-test:$koinVersion")
+    testImplementation("io.insert-koin:koin-test-junit5:$koinVersion")
 
     // Android Test dependencies
     androidTestImplementation("androidx.test.ext:junit:$androidTestExtVersion")

@@ -12,8 +12,9 @@
     <string name="row_streaming_sources_title">Where do I watch it?</string>
     <string name="chip_streaming_source_image_description">Image from the streaming website</string>
     <string name="string_hyphen_string">%s - %s</string>
-    <string name="screen_favorites_button_delete_text">Delete</string>
-    <string name="screen_favorites_button_favorite_text">Favorite</string>
+    <string name="screen_details_button_delete_text">Delete</string>
+    <string name="screen_details_button_favorite_text">Favorite</string>
     <string name="toast_added_to_favorites_text">Content added to favorites list</string>
     <string name="toast_favorite_deleted_text">Content was successfully deleted</string>
+    <string name="nested_scroll_view_content_description">Media content details screen</string>
 </resources>

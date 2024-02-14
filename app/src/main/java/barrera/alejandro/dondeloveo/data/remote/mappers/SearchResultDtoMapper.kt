@@ -16,7 +16,7 @@ fun SearchByTitleResponseDto.SearchResultDto.toMediaContentOverview(): MediaCont
 fun SearchByTitleResponseDto.SearchResultDto.toMovieOverview(): MediaContentOverview {
     return MovieOverview(
         id = id,
-        title = name ?: "Título no disponible",
+        title = name ?: "Title not available",
         year = year ?: 0,
         imageUrl = imageUrl
     )
@@ -25,7 +25,7 @@ fun SearchByTitleResponseDto.SearchResultDto.toMovieOverview(): MediaContentOver
 fun SearchByTitleResponseDto.SearchResultDto.toSeriesOverview(): MediaContentOverview {
     return SeriesOverview(
         id = id,
-        title = name ?: "Título no disponible",
+        title = name ?: "Title not available",
         year = year ?: 0,
         imageUrl = imageUrl
     )

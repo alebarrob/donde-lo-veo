@@ -6,7 +6,7 @@ import barrera.alejandro.dondeloveo.domain.model.StreamingSource
 fun StreamingSourceDto.toStreamingSource(imageUrl: String): StreamingSource {
     return StreamingSource(
         id = sourceId,
-        name = name ?: "Nombre no disponible",
+        name = name ?: "Name not available",
         imageUrl = imageUrl,
         webUrl = webUrl
     )

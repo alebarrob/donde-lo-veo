@@ -83,7 +83,9 @@ class MediaContentRepositoryImpl(
     ): Result<Map<StreamingSourceDto, String>> {
         return try {
             Result.success(
-                api.getStreamingSources(mediaContentId).associateWith { streamingSourceDto ->
+                api.getStreamingSources(mediaContentId).reversed().distinctBy {
+                    it.sourceId
+                }.associateWith { streamingSourceDto ->
                     getStreamingSourceLogoUrlById(streamingSourceDto.sourceId)
                 }
             )

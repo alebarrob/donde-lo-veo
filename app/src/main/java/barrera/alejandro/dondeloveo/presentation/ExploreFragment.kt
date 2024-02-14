@@ -4,16 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.isVisible
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import barrera.alejandro.dondeloveo.databinding.FragmentExploreBinding
 import barrera.alejandro.dondeloveo.presentation.adapter.MediaContentOverviewAdapter
 import barrera.alejandro.dondeloveo.presentation.base.BaseFragment
 import barrera.alejandro.dondeloveo.presentation.model.UiMediaContent
-import barrera.alejandro.dondeloveo.presentation.model.UiMediaContentOverview
 import barrera.alejandro.dondeloveo.presentation.model.UiMovieOverview
 import barrera.alejandro.dondeloveo.presentation.util.showToast
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -22,7 +22,8 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
     private val viewModel: ExploreViewModel by viewModel()
     private lateinit var exploreDisplayText: TextView
     private lateinit var searchView: SearchView
-    private lateinit var mediaContentRecyclerview: RecyclerView
+    private lateinit var mediaContentRecyclerView: RecyclerView
+    private lateinit var circularProgressBar: ProgressBar
 
     companion object {
         private const val IS_FAVORITE_SCREEN = "isFavoriteScreen"
@@ -35,7 +36,8 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
     override fun setupViewBinding() {
         exploreDisplayText = binding.exploreDisplayText
         searchView = binding.searchView
-        mediaContentRecyclerview = binding.mediaContentRecyclerview
+        mediaContentRecyclerView = binding.mediaContentRecyclerview
+        circularProgressBar = binding.circularProgressBar
     }
 
     override fun getBundleArguments(arguments: Bundle) {
@@ -50,11 +52,21 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
                 if (isFavoriteScreen) loadFavoriteMediaContent() else refreshMediaContentItems()
             }
             mediaContentItems.observe(viewLifecycleOwner) { mediaContentItems ->
-                setupRecyclerViewAdapter(mediaContentItems)
+                mediaContentRecyclerView.adapter = MediaContentOverviewAdapter(
+                    mediaContentItems = mediaContentItems,
+                    onClickMoreInfoButton = { position ->
+                        viewModel.onClickMoreInfoButton(position)
+                    }
+                )
             }
             showToastEvent.observe(viewLifecycleOwner) { event ->
                 event.getContentIfNotHandled()?.let { text ->
                     requireContext().showToast(text)
+                }
+            }
+            showCircularProgressBarEvent.observe(viewLifecycleOwner) { event ->
+                event.getContentIfNotHandled()?.let { showCircularProgressBar ->
+                    circularProgressBar.isVisible = showCircularProgressBar
                 }
             }
             navigateToDetailsFragmentEvent.observe(viewLifecycleOwner) { event ->
@@ -62,20 +74,6 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
                     navigateToDetailFragment(selectedMediaContent)
                 }
             }
-        }
-    }
-
-    private fun setupRecyclerViewAdapter(mediaContentItems: List<UiMediaContentOverview>) {
-        val mediaContentOverviewAdapter = MediaContentOverviewAdapter(
-            mediaContentItems = mediaContentItems,
-            onClickMoreInfoButton = { position ->
-                viewModel.onClickMoreInfoButton(position)
-            }
-        )
-
-        mediaContentRecyclerview.apply {
-            adapter = mediaContentOverviewAdapter
-            layoutManager = LinearLayoutManager(requireContext())
         }
     }
 

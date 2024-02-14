@@ -28,10 +28,10 @@ private fun MediaContentDto.toMovieDetails(
 
     return MovieDetails(
         id = id,
-        title = title ?: "Título no disponible",
+        title = title ?: "Title not available",
         year = year ?: 0,
         imageUrl = poster,
-        description = plotOverview ?: "Descripción no disponible",
+        description = plotOverview ?: "Description not available",
         streamingSources = streamingSourceDtosWithImageUrls?.map { (streamingSourceDto, imageUrl) ->
             streamingSourceDto.toStreamingSource(imageUrl)
         } ?: emptyList(),
@@ -48,11 +48,11 @@ private fun MediaContentDto.toSeriesDetails(
 
     return SeriesDetails(
         id = id,
-        title = title ?: "Título no disponible",
+        title = title ?: "Title not available",
         year = year ?: 0,
         endYear = endYear,
         imageUrl = poster,
-        description = plotOverview ?: "Descripción no disponible",
+        description = plotOverview ?: "Description not available",
         streamingSources = streamingSourceDtosWithImageUrls?.map { (streamingSourceDto, imageUrl) ->
             streamingSourceDto.toStreamingSource(imageUrl)
         } ?: emptyList(),

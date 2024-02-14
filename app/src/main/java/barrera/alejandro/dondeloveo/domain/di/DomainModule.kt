@@ -3,6 +3,7 @@ package barrera.alejandro.dondeloveo.domain.di
 import barrera.alejandro.dondeloveo.domain.use_case.DeleteFavoriteMediaContent
 import barrera.alejandro.dondeloveo.domain.use_case.GetAllFavoriteMediaContentOverview
 import barrera.alejandro.dondeloveo.domain.use_case.GetFavoriteMediaContentDetails
+import barrera.alejandro.dondeloveo.domain.use_case.GetMediaContentDetails
 import barrera.alejandro.dondeloveo.domain.use_case.InsertFavoriteMediaContent
 import barrera.alejandro.dondeloveo.domain.use_case.SaveStreamingSourceLogosUrl
 import barrera.alejandro.dondeloveo.domain.use_case.SearchByTitle
@@ -17,6 +18,9 @@ val domainModule = module {
     }
     factory {
         GetFavoriteMediaContentDetails(get())
+    }
+    factory {
+        GetMediaContentDetails(get())
     }
     factory {
         InsertFavoriteMediaContent(get())

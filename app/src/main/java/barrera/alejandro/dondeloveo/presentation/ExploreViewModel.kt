@@ -32,6 +32,10 @@ class ExploreViewModel(
     val showToastEvent: LiveData<Event<UiText>>
         get() = _showToastEvent
 
+    private val _showCircularProgressBarEvent = MutableLiveData<Event<Boolean>>()
+    val showCircularProgressBarEvent: LiveData<Event<Boolean>>
+        get() = _showCircularProgressBarEvent
+
     private val _navigateToDetailsFragmentEvent = MutableLiveData<Event<UiMediaContent>>()
     val navigateToDetailsFragmentEvent: LiveData<Event<UiMediaContent>>
         get() = _navigateToDetailsFragmentEvent
@@ -41,13 +45,16 @@ class ExploreViewModel(
     }
 
     fun onSearchByTitle(query: String) {
+        _showCircularProgressBarEvent.value = Event(true)
         viewModelScope.launch {
             searchByTitle.invoke(query)
                 .onSuccess { mediaContents ->
                     _mediaContentItems.value = mediaContents.map { it.toUiMediaContentOverview() }
+                    _showCircularProgressBarEvent.value = Event(false)
                 }
                 .onFailure {
                     _showToastEvent.value = Event(UiText.StringResource(R.string.api_error))
+                    _showCircularProgressBarEvent.value = Event(false)
                 }
         }
     }

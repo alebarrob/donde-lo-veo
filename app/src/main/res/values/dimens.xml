@@ -22,6 +22,9 @@
 
     <!-- Details fragment -->
 
+    <dimen name="media_content_image_width">185dp</dimen>
+    <dimen name="media_content_image_height">278dp</dimen>
+
     <dimen name="image_streaming_source_width">100dp</dimen>
     <dimen name="image_streaming_source_height">100dp</dimen>
 
@@ -29,5 +32,9 @@
 
     <dimen name="image_team_member_width">46dp</dimen>
     <dimen name="image_team_member_height">69dp</dimen>
+
+    <dimen name="details_screen_nested_scroll_view_height">120dp</dimen>
+
+    <dimen name="media_content_description_text_view_height">100dp</dimen>
 
 </resources>

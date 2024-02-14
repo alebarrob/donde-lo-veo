@@ -16,17 +16,17 @@ fun TeamMemberDto.toTeamMember(): TeamMember {
 private fun TeamMemberDto.toCrewMember(): TeamMember {
     return CrewMember(
         id = personId,
-        name = fullName ?: "Nombre no disponible",
+        name = fullName ?: "Name not available",
         imageUrl = headshotUrl,
-        role = role ?: "Rol no disponible"
+        role = role ?: "Role not available"
     )
 }
 
 private fun TeamMemberDto.toCastMember(): TeamMember {
     return CastMember(
         id = personId,
-        name = fullName ?: "Nombre no disponible",
+        name = fullName ?: "Name not available",
         imageUrl = headshotUrl,
-        role = role ?: "Rol no disponible"
+        role = role ?: "Role not available"
     )
 }

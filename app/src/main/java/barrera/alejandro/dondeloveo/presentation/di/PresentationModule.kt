@@ -1,5 +1,6 @@
 package barrera.alejandro.dondeloveo.presentation.di
 
+import barrera.alejandro.dondeloveo.presentation.DetailsViewModel
 import barrera.alejandro.dondeloveo.presentation.ExploreViewModel
 import barrera.alejandro.dondeloveo.presentation.MainViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -11,5 +12,8 @@ val presentationModule = module {
     }
     viewModel {
         ExploreViewModel(get(), get())
+    }
+    viewModel {
+        DetailsViewModel(get())
     }
 }

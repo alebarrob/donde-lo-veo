@@ -74,7 +74,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
     override fun observeScreenState() {
         with(viewModel) {
             isFavoriteScreen.observe(viewLifecycleOwner) { isFavoriteScreen ->
-                mediaContentId?.let {  mediaContentId ->
+                mediaContentId?.let { mediaContentId ->
                     setupButton(isFavoriteScreen)
                     if (isFavoriteScreen) {
                         loadFavoriteMediaContentDetails(mediaContentId)
@@ -130,7 +130,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
                 getString(R.string.screen_details_button_favorite_text)
             }
             setOnClickListener {
-                with (viewModel) {
+                with(viewModel) {
                     if (isFavoriteScreen) onClickDelete() else onClickFavorite()
                 }
             }

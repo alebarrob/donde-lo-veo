@@ -12,7 +12,7 @@ import coil.load
 class MediaContentOverviewAdapter(
     mediaContentItems: List<UiMediaContentOverview>,
     private val onClickMoreInfoButton: (Int) -> Unit
-): BaseAdapter<UiMediaContentOverview, MediaContentItemBinding>(mediaContentItems) {
+) : BaseAdapter<UiMediaContentOverview, MediaContentItemBinding>(mediaContentItems) {
 
     inner class MediaContentOverviewViewHolder(
         binding: MediaContentItemBinding

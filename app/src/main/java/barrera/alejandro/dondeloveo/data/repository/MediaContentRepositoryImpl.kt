@@ -124,12 +124,12 @@ class MediaContentRepositoryImpl(
                 }
             )
             castMemberDao.insertCastMembers(
-                cast.map {  castMember ->
+                cast.map { castMember ->
                     castMember.toCastMemberEntity(id)
                 }
             )
             streamingSourceDao.insertStreamingSources(
-                streamingSources.map {  streamingSource ->
+                streamingSources.map { streamingSource ->
                     streamingSource.toStreamingSourceEntity(id)
                 }
             )
@@ -140,7 +140,7 @@ class MediaContentRepositoryImpl(
         return favoriteMediaContentDao
             .getAllFavoriteMediaContent().map { favoriteMediaContentWithRelations ->
                 favoriteMediaContentWithRelations.favoriteMediaContent.toMediaContentOverview()
-        }
+            }
     }
 
     override suspend fun getFavoriteMediaContentDetails(mediaContentId: Int): MediaContentDetails {

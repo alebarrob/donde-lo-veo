@@ -32,6 +32,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         }
         observeScreenState()
     }
+
     open fun getBundleArguments(arguments: Bundle) = Unit
 
     open fun observeScreenState() = Unit

@@ -23,10 +23,10 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:contentDescription="@string/chip_streaming_source_image_description"
                 android:id="@+id/imageView"
                 android:layout_width="@dimen/image_streaming_source_width"
                 android:layout_height="@dimen/image_streaming_source_height"
+                android:contentDescription="@string/chip_streaming_source_image_description"
                 android:scaleType="fitXY"
                 tools:ignore="ImageContrastCheck"
                 tools:src="@drawable/image_placeholder" />

@@ -41,7 +41,7 @@ fun MediaContentDetails.toFavoriteMediaContentEntity(): FavoriteMediaContentEnti
         endYear = if (this is SeriesDetails) endYear else null,
         imageUrl = imageUrl,
         description = description,
-        type = when(this) {
+        type = when (this) {
             is SeriesDetails -> "tv"
             else -> "movie"
         }

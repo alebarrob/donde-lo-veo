@@ -15,8 +15,15 @@ fun MediaContentDto.toMediaContentDetails(
     teamMemberDtos: List<TeamMemberDto>?
 ): MediaContentDetails {
     return when (MediaContentType.fromValue(tmdbType)) {
-        MediaContentType.MOVIE -> this.toMovieDetails(streamingSourceDtosWithImageUrls, teamMemberDtos)
-        MediaContentType.TV -> this.toSeriesDetails(streamingSourceDtosWithImageUrls, teamMemberDtos)
+        MediaContentType.MOVIE -> this.toMovieDetails(
+            streamingSourceDtosWithImageUrls,
+            teamMemberDtos
+        )
+
+        MediaContentType.TV -> this.toSeriesDetails(
+            streamingSourceDtosWithImageUrls,
+            teamMemberDtos
+        )
     }
 }
 

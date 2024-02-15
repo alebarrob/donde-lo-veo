@@ -11,6 +11,7 @@ fun CastMemberEntity.toCastMember(): CastMember {
         role = role
     )
 }
+
 fun CastMember.toCastMemberEntity(mediaContentId: Int): CastMemberEntity {
     return CastMemberEntity(
         id = 0,

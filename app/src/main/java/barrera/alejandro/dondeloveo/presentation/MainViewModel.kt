@@ -14,5 +14,4 @@ class MainViewModel(
             saveStreamingSourceLogosUrl.invoke()
         }
     }
-
 }

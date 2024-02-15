@@ -7,7 +7,10 @@ import androidx.viewbinding.ViewBinding
 abstract class BaseAdapter<T, VB : ViewBinding>(
     private val items: List<T>
 ) : RecyclerView.Adapter<BaseViewHolder<T, VB>>() {
-    abstract override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<T, VB>
+    abstract override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): BaseViewHolder<T, VB>
 
     abstract fun inflateBinding(parent: ViewGroup): VB
 

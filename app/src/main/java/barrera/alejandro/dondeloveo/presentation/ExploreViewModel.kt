@@ -72,15 +72,7 @@ class ExploreViewModel(
         }
     }
 
-    // TODO("Favorites not implemented yet")
     fun refreshMediaContentItems() {
-        _mediaContentItems.value = if (_isFavoriteScreen.value == true) {
-            listOf(
-                UiMovieOverview(0, "Favorite movie title", "1999", ""),
-                UiSeriesOverview(0, "Favorite series title", "1999", "")
-            )
-        } else {
-            emptyList()
-        }
+        _mediaContentItems.value = emptyList()
     }
 }

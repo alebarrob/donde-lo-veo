@@ -1,15 +1,15 @@
 package barrera.alejandro.dondeloveo.data.remote.mappers
 
 import barrera.alejandro.dondeloveo.data.remote.dto.TeamMemberDto
-import barrera.alejandro.dondeloveo.data.remote.enums.TeamMemberTypes
+import barrera.alejandro.dondeloveo.data.enums.TeamMemberType
 import barrera.alejandro.dondeloveo.domain.model.CastMember
 import barrera.alejandro.dondeloveo.domain.model.CrewMember
 import barrera.alejandro.dondeloveo.domain.model.TeamMember
 
 fun TeamMemberDto.toTeamMember(): TeamMember {
-    return when (TeamMemberTypes.fromValue(type)) {
-        TeamMemberTypes.CREW -> this.toCrewMember()
-        TeamMemberTypes.CAST -> this.toCastMember()
+    return when (TeamMemberType.fromValue(type)) {
+        TeamMemberType.CREW -> this.toCrewMember()
+        TeamMemberType.CAST -> this.toCastMember()
     }
 }
 

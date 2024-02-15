@@ -19,14 +19,25 @@ val dataModule = module {
             .create(WatchmodeApi::class.java)
     }
     single {
-        Room.databaseBuilder(androidContext(), Database::class.java, "donde_lo_veo_database")
+        Room.databaseBuilder(androidContext(), Database::class.java, "database")
             .build()
     }
     single {
-        val database: Database = get()
-        database.streamingSourceLogoUrlDao()
+        get<Database>().streamingSourceLogoUrlDao()
+    }
+    single {
+        get<Database>().castMemberDao()
+    }
+    single {
+        get<Database>().crewMemberDao()
+    }
+    single {
+        get<Database>().favoriteMediaContentDao()
+    }
+    single {
+        get<Database>().streamingSourceDao()
     }
     single<MediaContentRepository> {
-        MediaContentRepositoryImpl(get(), get())
+        MediaContentRepositoryImpl(get(), get(), get(), get(), get(), get())
     }
 }

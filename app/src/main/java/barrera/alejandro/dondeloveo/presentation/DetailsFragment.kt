@@ -9,6 +9,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.view.isVisible
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import barrera.alejandro.dondeloveo.R
 import barrera.alejandro.dondeloveo.presentation.base.BaseFragment
@@ -41,7 +42,6 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
     companion object {
         private const val MEDIA_CONTENT_ID = "id"
         private const val IS_FAVORITE_SCREEN = "isFavoriteScreen"
-        private const val MEDIA_CONTENT_TYPE = "mediaContentType"
     }
 
     override fun inflate(inflater: LayoutInflater) = FragmentDetailsBinding.inflate(inflater)
@@ -66,9 +66,6 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
         with(viewModel) {
             with(arguments) {
                 updateMediaContentId(getInt(MEDIA_CONTENT_ID))
-                getString(MEDIA_CONTENT_TYPE)?.let { mediaContentType ->
-                    updateMediaContentType(mediaContentType)
-                }
                 updateIsFavoriteScreen(getBoolean(IS_FAVORITE_SCREEN))
             }
         }
@@ -78,13 +75,11 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
         with(viewModel) {
             isFavoriteScreen.observe(viewLifecycleOwner) { isFavoriteScreen ->
                 mediaContentId?.let {  mediaContentId ->
-                    mediaContentType?.let { mediaContentType ->
-                        setupButton(isFavoriteScreen)
-                        if (isFavoriteScreen) {
-                            loadFavoriteMediaContentDetails(mediaContentType, mediaContentId)
-                        } else {
-                            loadMediaContentDetails(mediaContentId)
-                        }
+                    setupButton(isFavoriteScreen)
+                    if (isFavoriteScreen) {
+                        loadFavoriteMediaContentDetails(mediaContentId)
+                    } else {
+                        loadMediaContentDetails(mediaContentId)
                     }
                 }
             }
@@ -117,6 +112,11 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
                     crewTextView.isVisible = !showCircularProgressBar
                     castTextView.isVisible = !showCircularProgressBar
                     streamingSourceTextView.isVisible = !showCircularProgressBar
+                }
+            }
+            navigateBackEvent.observe(viewLifecycleOwner) { event ->
+                event.getContentIfNotHandled()?.let {
+                    view?.findNavController()?.navigateUp()
                 }
             }
         }

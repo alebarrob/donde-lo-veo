@@ -1,19 +1,19 @@
 package barrera.alejandro.dondeloveo.data.remote.mappers
 
 import barrera.alejandro.dondeloveo.data.remote.dto.SearchByTitleResponseDto
-import barrera.alejandro.dondeloveo.data.remote.enums.TmdbTypes
+import barrera.alejandro.dondeloveo.data.enums.MediaContentType
 import barrera.alejandro.dondeloveo.domain.model.MediaContentOverview
 import barrera.alejandro.dondeloveo.domain.model.MovieOverview
 import barrera.alejandro.dondeloveo.domain.model.SeriesOverview
 
 fun SearchByTitleResponseDto.SearchResultDto.toMediaContentOverview(): MediaContentOverview {
-    return when (TmdbTypes.fromValue(tmdbType)) {
-        TmdbTypes.MOVIE -> this.toMovieOverview()
-        TmdbTypes.TV -> this.toSeriesOverview()
+    return when (MediaContentType.fromValue(tmdbType)) {
+        MediaContentType.MOVIE -> this.toMovieOverview()
+        MediaContentType.TV -> this.toSeriesOverview()
     }
 }
 
-fun SearchByTitleResponseDto.SearchResultDto.toMovieOverview(): MediaContentOverview {
+fun SearchByTitleResponseDto.SearchResultDto.toMovieOverview(): MovieOverview {
     return MovieOverview(
         id = id,
         title = name ?: "Title not available",
@@ -22,7 +22,7 @@ fun SearchByTitleResponseDto.SearchResultDto.toMovieOverview(): MediaContentOver
     )
 }
 
-fun SearchByTitleResponseDto.SearchResultDto.toSeriesOverview(): MediaContentOverview {
+fun SearchByTitleResponseDto.SearchResultDto.toSeriesOverview(): SeriesOverview {
     return SeriesOverview(
         id = id,
         title = name ?: "Title not available",

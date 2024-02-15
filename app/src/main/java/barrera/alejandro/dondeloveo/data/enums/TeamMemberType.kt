@@ -1,11 +1,11 @@
-package barrera.alejandro.dondeloveo.data.remote.enums
+package barrera.alejandro.dondeloveo.data.enums
 
-enum class TeamMemberTypes {
+enum class TeamMemberType {
     CREW,
     CAST;
 
     companion object {
-        fun fromValue(value: String?): TeamMemberTypes {
+        fun fromValue(value: String?): TeamMemberType {
             return when (value) {
                 "Crew" -> CREW
                 "Cast" -> CAST

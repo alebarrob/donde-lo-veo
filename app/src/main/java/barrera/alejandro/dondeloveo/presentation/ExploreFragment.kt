@@ -49,7 +49,7 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
             isFavoriteScreen.observe(viewLifecycleOwner) { isFavoriteScreen ->
                 setupSearchView(isFavoriteScreen)
                 setupDisplayText(isFavoriteScreen)
-                if (isFavoriteScreen) loadFavoriteMediaContent() else refreshMediaContentItems()
+                if (isFavoriteScreen) loadFavoriteMediaContent()
             }
             mediaContentItems.observe(viewLifecycleOwner) { mediaContentItems ->
                 mediaContentRecyclerView.adapter = MediaContentOverviewAdapter(
@@ -84,12 +84,7 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
                     view?.findNavController()?.navigate(
                         ExploreFragmentDirections.navigateToDetailsFragment(
                             id = id,
-                            isFavoriteScreen = isFavoriteScreen,
-                            mediaContentType = if (this is UiMovieOverview) {
-                                MOVIE_TYPE
-                            } else {
-                                SERIES_TYPE
-                            }
+                            isFavoriteScreen = isFavoriteScreen
                         )
                     )
                 }

@@ -1,7 +1,17 @@
 package barrera.alejandro.dondeloveo.data.repository
 
+import barrera.alejandro.dondeloveo.data.local.dao.CastMemberDao
+import barrera.alejandro.dondeloveo.data.local.dao.CrewMemberDao
+import barrera.alejandro.dondeloveo.data.local.dao.FavoriteMediaContentDao
+import barrera.alejandro.dondeloveo.data.local.dao.StreamingSourceDao
 import barrera.alejandro.dondeloveo.data.local.dao.StreamingSourceLogoUrlDao
 import barrera.alejandro.dondeloveo.data.local.entity.StreamingSourceLogoUrlEntity
+import barrera.alejandro.dondeloveo.data.local.mappers.toCastMemberEntity
+import barrera.alejandro.dondeloveo.data.local.mappers.toCrewMemberEntity
+import barrera.alejandro.dondeloveo.data.local.mappers.toFavoriteMediaContentEntity
+import barrera.alejandro.dondeloveo.data.local.mappers.toMediaContentDetails
+import barrera.alejandro.dondeloveo.data.local.mappers.toMediaContentOverview
+import barrera.alejandro.dondeloveo.data.local.mappers.toStreamingSourceEntity
 import barrera.alejandro.dondeloveo.data.remote.api.WatchmodeApi
 import barrera.alejandro.dondeloveo.data.remote.dto.StreamingSourceDto
 import barrera.alejandro.dondeloveo.data.remote.dto.TeamMemberDto
@@ -15,6 +25,10 @@ import barrera.alejandro.dondeloveo.domain.repository.MediaContentRepository
 class MediaContentRepositoryImpl(
     private val api: WatchmodeApi,
     private val streamingSourceLogoUrlDao: StreamingSourceLogoUrlDao,
+    private val streamingSourceDao: StreamingSourceDao,
+    private val crewMemberDao: CrewMemberDao,
+    private val castMemberDao: CastMemberDao,
+    private val favoriteMediaContentDao: FavoriteMediaContentDao
 ) : MediaContentRepository {
     override suspend fun saveStreamingSourceLogosUrl() {
         getStreamingSourceLogosUrlEntities().getOrNull()?.let { streamingSourceLogosUrlEntities ->
@@ -100,18 +114,44 @@ class MediaContentRepositoryImpl(
     }
 
     override suspend fun insertFavoriteMediaContent(mediaContentDetails: MediaContentDetails) {
-        TODO("Not yet implemented")
+        with(mediaContentDetails) {
+            favoriteMediaContentDao.insertFavoriteMediaContent(
+                this.toFavoriteMediaContentEntity()
+            )
+            crewMemberDao.insertCrewMembers(
+                crew.map { crewMember ->
+                    crewMember.toCrewMemberEntity(id)
+                }
+            )
+            castMemberDao.insertCastMembers(
+                cast.map {  castMember ->
+                    castMember.toCastMemberEntity(id)
+                }
+            )
+            streamingSourceDao.insertStreamingSources(
+                streamingSources.map {  streamingSource ->
+                    streamingSource.toStreamingSourceEntity(id)
+                }
+            )
+        }
     }
 
     override suspend fun getAllFavoriteMediaContentOverview(): List<MediaContentOverview> {
-        TODO("Not yet implemented")
+        return favoriteMediaContentDao
+            .getAllFavoriteMediaContent().map { favoriteMediaContentWithRelations ->
+                favoriteMediaContentWithRelations.favoriteMediaContent.toMediaContentOverview()
+        }
     }
 
     override suspend fun getFavoriteMediaContentDetails(mediaContentId: Int): MediaContentDetails {
-        TODO("Not yet implemented")
+        return favoriteMediaContentDao
+            .getFavoriteMediaContent(mediaContentId).toMediaContentDetails()
     }
 
     override suspend fun deleteFavoriteMediaContent(mediaContentId: Int) {
-        TODO("Not yet implemented")
+        favoriteMediaContentDao.deleteFavoriteMediaContent(mediaContentId)
+        crewMemberDao.deleteCrewMember(mediaContentId)
+        castMemberDao.deleteCastMember(mediaContentId)
+        streamingSourceDao.deleteStreamingSources(mediaContentId)
     }
 }

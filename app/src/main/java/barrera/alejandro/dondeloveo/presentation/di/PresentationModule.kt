@@ -14,6 +14,6 @@ val presentationModule = module {
         ExploreViewModel(get(), get())
     }
     viewModel {
-        DetailsViewModel(get())
+        DetailsViewModel(get(), get(), get(), get())
     }
 }

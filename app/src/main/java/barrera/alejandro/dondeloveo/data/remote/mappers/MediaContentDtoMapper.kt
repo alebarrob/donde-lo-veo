@@ -3,7 +3,7 @@ package barrera.alejandro.dondeloveo.data.remote.mappers
 import barrera.alejandro.dondeloveo.data.remote.dto.MediaContentDto
 import barrera.alejandro.dondeloveo.data.remote.dto.StreamingSourceDto
 import barrera.alejandro.dondeloveo.data.remote.dto.TeamMemberDto
-import barrera.alejandro.dondeloveo.data.remote.enums.TmdbTypes
+import barrera.alejandro.dondeloveo.data.enums.MediaContentType
 import barrera.alejandro.dondeloveo.domain.model.CastMember
 import barrera.alejandro.dondeloveo.domain.model.CrewMember
 import barrera.alejandro.dondeloveo.domain.model.MediaContentDetails
@@ -14,16 +14,16 @@ fun MediaContentDto.toMediaContentDetails(
     streamingSourceDtosWithImageUrls: Map<StreamingSourceDto, String>?,
     teamMemberDtos: List<TeamMemberDto>?
 ): MediaContentDetails {
-    return when (TmdbTypes.fromValue(tmdbType)) {
-        TmdbTypes.MOVIE -> this.toMovieDetails(streamingSourceDtosWithImageUrls, teamMemberDtos)
-        TmdbTypes.TV -> this.toSeriesDetails(streamingSourceDtosWithImageUrls, teamMemberDtos)
+    return when (MediaContentType.fromValue(tmdbType)) {
+        MediaContentType.MOVIE -> this.toMovieDetails(streamingSourceDtosWithImageUrls, teamMemberDtos)
+        MediaContentType.TV -> this.toSeriesDetails(streamingSourceDtosWithImageUrls, teamMemberDtos)
     }
 }
 
 private fun MediaContentDto.toMovieDetails(
     streamingSourceDtosWithImageUrls: Map<StreamingSourceDto, String>?,
     teamMemberDtos: List<TeamMemberDto>?
-): MediaContentDetails {
+): MovieDetails {
     val teamMembers = teamMemberDtos?.map { it.toTeamMember() }
 
     return MovieDetails(
@@ -43,7 +43,7 @@ private fun MediaContentDto.toMovieDetails(
 private fun MediaContentDto.toSeriesDetails(
     streamingSourceDtosWithImageUrls: Map<StreamingSourceDto, String>?,
     teamMemberDtos: List<TeamMemberDto>?
-): MediaContentDetails {
+): SeriesDetails {
     val teamMembers = teamMemberDtos?.map { it.toTeamMember() }
 
     return SeriesDetails(

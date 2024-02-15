@@ -14,7 +14,6 @@ import barrera.alejandro.dondeloveo.databinding.FragmentExploreBinding
 import barrera.alejandro.dondeloveo.presentation.adapter.MediaContentOverviewAdapter
 import barrera.alejandro.dondeloveo.presentation.base.BaseFragment
 import barrera.alejandro.dondeloveo.presentation.model.UiMediaContent
-import barrera.alejandro.dondeloveo.presentation.model.UiMovieOverview
 import barrera.alejandro.dondeloveo.presentation.util.showToast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -27,8 +26,6 @@ class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
 
     companion object {
         private const val IS_FAVORITE_SCREEN = "isFavoriteScreen"
-        private const val MOVIE_TYPE = "Movie"
-        private const val SERIES_TYPE = "Series"
     }
 
     override fun inflate(inflater: LayoutInflater) = FragmentExploreBinding.inflate(inflater)

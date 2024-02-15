@@ -10,8 +10,6 @@ import barrera.alejandro.dondeloveo.domain.use_case.SearchByTitle
 import barrera.alejandro.dondeloveo.presentation.mappers.toUiMediaContentOverview
 import barrera.alejandro.dondeloveo.presentation.model.UiMediaContent
 import barrera.alejandro.dondeloveo.presentation.model.UiMediaContentOverview
-import barrera.alejandro.dondeloveo.presentation.model.UiMovieOverview
-import barrera.alejandro.dondeloveo.presentation.model.UiSeriesOverview
 import barrera.alejandro.dondeloveo.presentation.util.Event
 import barrera.alejandro.dondeloveo.presentation.util.UiText
 import kotlinx.coroutines.launch
@@ -70,9 +68,5 @@ class ExploreViewModel(
             _mediaContentItems.value =
                 getAllFavoriteMediaContentOverview().map { it.toUiMediaContentOverview() }
         }
-    }
-
-    fun refreshMediaContentItems() {
-        _mediaContentItems.value = emptyList()
     }
 }

@@ -2,7 +2,6 @@ package barrera.alejandro.dondeloveo.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import barrera.alejandro.dondeloveo.data.enums.MediaContentType
 
 @Entity(tableName = "favoriteMediaContent")
 data class FavoriteMediaContentEntity(

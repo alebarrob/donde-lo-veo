@@ -49,6 +49,10 @@ dependencies {
     val coilVersion = "2.5.0"
     val junitVersion = "4.13.2"
     val espressoCoreVersion = "3.5.1"
+    val mockitoVersion = "5.10.0"
+    val coroutinesTestVersion = "1.7.1"
+    val mockitoKotlinVersion = "5.2.1"
+    val androidxArchCoreVersion = "2.2.0"
     val androidTestExtVersion = "1.1.5"
     val retrofitVersion = "2.9.0"
     val roomVersion = "2.6.1"
@@ -85,6 +89,10 @@ dependencies {
     testImplementation("junit:junit:$junitVersion")
     testImplementation("io.insert-koin:koin-test:$koinVersion")
     testImplementation("io.insert-koin:koin-test-junit5:$koinVersion")
+    testImplementation("org.mockito:mockito-core:$mockitoVersion")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVersion")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesTestVersion")
+    testImplementation("androidx.arch.core:core-testing:$androidxArchCoreVersion")
 
     // Android Test dependencies
     androidTestImplementation("androidx.test.ext:junit:$androidTestExtVersion")

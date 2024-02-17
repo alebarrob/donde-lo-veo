@@ -1,8 +1,6 @@
 package barrera.alejandro.dondeloveo.data.local.mappers
 
 import barrera.alejandro.dondeloveo.data.local.entity.StreamingSourceEntity
-import barrera.alejandro.dondeloveo.data.local.mappers.toStreamingSource
-import barrera.alejandro.dondeloveo.data.local.mappers.toStreamingSourceEntity
 import barrera.alejandro.dondeloveo.domain.model.StreamingSource
 import org.junit.Assert.assertEquals
 import org.junit.Test

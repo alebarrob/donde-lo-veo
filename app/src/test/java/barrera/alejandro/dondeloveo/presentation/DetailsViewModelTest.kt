@@ -11,7 +11,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert
-import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -92,8 +91,8 @@ class DetailsViewModelTest {
             viewModel.loadMediaContentDetails(mediaContentId = 1)
             advanceUntilIdle()
 
-            assertEquals(expected, viewModel.mediaContentDetails.value)
-            assertEquals(
+            Assert.assertEquals(expected, viewModel.mediaContentDetails.value)
+            Assert.assertEquals(
                 false,
                 viewModel.showCircularProgressBarEvent.value?.getContentIfNotHandled()
             )
@@ -107,7 +106,7 @@ class DetailsViewModelTest {
             viewModel.loadMediaContentDetails(mediaContentId = 1)
             advanceUntilIdle()
 
-            assertEquals(
+            Assert.assertEquals(
                 false,
                 viewModel.showCircularProgressBarEvent.value?.getContentIfNotHandled()
             )
@@ -133,8 +132,8 @@ class DetailsViewModelTest {
             viewModel.loadFavoriteMediaContentDetails(mediaContentId = 1)
             advanceUntilIdle()
 
-            assertEquals(expected, viewModel.mediaContentDetails.value)
-            assertEquals(
+            Assert.assertEquals(expected, viewModel.mediaContentDetails.value)
+            Assert.assertEquals(
                 false,
                 viewModel.showCircularProgressBarEvent.value?.getContentIfNotHandled()
             )

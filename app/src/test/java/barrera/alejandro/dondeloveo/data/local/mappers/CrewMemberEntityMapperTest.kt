@@ -1,8 +1,6 @@
 package barrera.alejandro.dondeloveo.data.local.mappers
 
 import barrera.alejandro.dondeloveo.data.local.entity.CrewMemberEntity
-import barrera.alejandro.dondeloveo.data.local.mappers.toCrewMember
-import barrera.alejandro.dondeloveo.data.local.mappers.toCrewMemberEntity
 import barrera.alejandro.dondeloveo.domain.model.CrewMember
 import org.junit.Assert.assertEquals
 import org.junit.Test

@@ -1,8 +1,6 @@
 package barrera.alejandro.dondeloveo.data.local.mappers
 
 import barrera.alejandro.dondeloveo.data.local.entity.CastMemberEntity
-import barrera.alejandro.dondeloveo.data.local.mappers.toCastMember
-import barrera.alejandro.dondeloveo.data.local.mappers.toCastMemberEntity
 import barrera.alejandro.dondeloveo.domain.model.CastMember
 import org.junit.Test
 import org.junit.Assert.assertEquals

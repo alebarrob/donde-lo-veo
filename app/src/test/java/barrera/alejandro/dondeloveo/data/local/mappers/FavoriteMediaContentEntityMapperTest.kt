@@ -1,8 +1,6 @@
 package barrera.alejandro.dondeloveo.data.local.mappers
 
 import barrera.alejandro.dondeloveo.data.local.entity.FavoriteMediaContentEntity
-import barrera.alejandro.dondeloveo.data.local.mappers.toFavoriteMediaContentEntity
-import barrera.alejandro.dondeloveo.data.local.mappers.toMediaContentOverview
 import barrera.alejandro.dondeloveo.domain.model.MovieDetails
 import barrera.alejandro.dondeloveo.domain.model.MovieOverview
 import barrera.alejandro.dondeloveo.domain.model.SeriesDetails

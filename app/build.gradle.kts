@@ -26,6 +26,11 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            resValue("string", "clear_text_config","false")
+        }
+        debug {
+            isMinifyEnabled = false
+            resValue("string", "clear_text_config","true")
         }
     }
     compileOptions {
@@ -49,6 +54,8 @@ dependencies {
     val coilVersion = "2.5.0"
     val junitVersion = "4.13.2"
     val espressoCoreVersion = "3.5.1"
+    val espressoContribVersion = "3.5.1"
+    val hamcrestVersion = "2.2"
     val mockitoVersion = "5.10.0"
     val coroutinesTestVersion = "1.7.1"
     val mockitoKotlinVersion = "5.2.1"
@@ -97,4 +104,6 @@ dependencies {
     // Android Test dependencies
     androidTestImplementation("androidx.test.ext:junit:$androidTestExtVersion")
     androidTestImplementation("androidx.test.espresso:espresso-core:$espressoCoreVersion")
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:$espressoContribVersion")
+    androidTestImplementation("org.hamcrest:hamcrest:$hamcrestVersion")
 }

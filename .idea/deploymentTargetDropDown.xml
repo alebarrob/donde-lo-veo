@@ -18,6 +18,21 @@
           <timeTargetWasSelectedWithDropDown value="2024-01-31T10:36:32.281568Z" />
         </State>
       </entry>
+      <entry key="getAllFavoriteMediaContentOverview()">
+        <State />
+      </entry>
+      <entry key="getFavoriteMediaContentDetails()">
+        <State />
+      </entry>
+      <entry key="getMediaContentDetails()">
+        <State />
+      </entry>
+      <entry key="insertFavoriteMediaContent()">
+        <State />
+      </entry>
+      <entry key="searchByTitle()">
+        <State />
+      </entry>
     </value>
   </component>
 </project>
